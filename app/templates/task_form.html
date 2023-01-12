@@ -1,0 +1,13 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+
+<div class="container mt-5">
+<form method="post">
+    {% csrf_token %}
+     {% bootstrap_form form %}
+    <input type="submit" value="Save">
+</form>
+</div>

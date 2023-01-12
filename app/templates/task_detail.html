@@ -1,0 +1,22 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Detail</title>
+</head>
+<body class="bg-body">
+    <div class="container mt-5">
+    <h1>{{ task.title }}</h1>
+    <p>{{ task.description }}</p>
+    <p>Completed: {{ task.completed }}</p>
+    <p>Created at: {{ task.created_at }}</p>
+    <p>Updated at: {{ task.updated_at }}</p>
+    <a href="{% url 'task_list' %}">Back to list</a>
+    <a href="{% url 'task_update' task.pk %}">Edit</a>
+    <a href="{% url 'task_delete' task.pk %}" onclick="return confirm('Are you sure?')">Delete</a>
+</body>
+</div>
+</html>

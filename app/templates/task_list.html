@@ -1,0 +1,39 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title class="text-center">Task List</title>
+</head>
+<body>
+    <div class="container mt-5">
+    <table>
+        <thead>
+            <tr>
+                <th class="text-succes">Title</th>
+                <th>Description</th>
+                <th>Completed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.completed }}</td>
+                <td>
+                    <a href="{% url 'task_detail' task.pk %}">View</a>
+                    <a href="{% url 'task_update' task.pk %}">Edit</a>
+                    <a href="{% url 'task_delete' task.pk %}" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'task_create' %}">Create new task</a>
+</body>
+</div>
+</html>
